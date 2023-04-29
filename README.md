@@ -10,3 +10,7 @@ this is a modeule for sentiment classification.
 
 2 - user manuale
 just import the sentiment_classifier and pass it the data frame import using the following line from Modules.utils import sentiment_clossifier, also not that the Modules must be in the same directory as your source file or change the path
+
+3-available algorithms:
+    3.1:support vector machine classifier with linear kernel.
+    vectorizer used is tf-idf vectorizer

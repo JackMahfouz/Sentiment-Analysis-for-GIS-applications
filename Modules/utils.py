@@ -97,13 +97,13 @@ def Attributer(dataframe):
     dataframe["text"] = dataframe.text.apply(string_joiner)
     return vectorizer.transform(dataframe.text)
 
-model = joblib.load("Modules/Sentiment_classifier.sav")
+svm_model = joblib.load("Modules/svm_Sentiment_classifier.sav")
 
 def sentiment_clossifier(data_frame, aspect, x_coord="x", y_coord="y"):
     sentiment_frame = pd.DataFrame()
     data_frame.dropna(inplace=True)
     sentiment_frame[aspect], sentiment_frame[x_coord], sentiment_frame[y_coord]  = data_frame[aspect], data_frame[x_coord], data_frame[y_coord]
     X = Attributer(data_frame)
-    sentiment_frame["sentiment"] = model.predict(X)
+    sentiment_frame["sentiment"] = svm_model.predict(X)
     return sentiment_frame
 
